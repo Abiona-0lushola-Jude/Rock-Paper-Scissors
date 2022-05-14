@@ -1,0 +1,321 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+}
+html{
+    --Dark-Text: hsl(229, 25%, 31%);
+    --Score-Text: hsl(229, 64%, 46%);
+    --Header-Outline: hsl(217, 16%, 45%);
+    --Scissors-Gradient: hsl(39, 89%, 49%) to hsl(40, 84%, 53%);
+    --Paper-Gradient: hsl(230, 89%, 62%) to hsl(230, 89%, 65%);
+    --Rock-Gradient: hsl(349, 71%, 52%) to hsl(349, 70%, 56%);
+    --Lizard-Gradient: hsl(261, 73%, 60%) to hsl(261, 72%, 63%);   
+    --Cyan: hsl(189, 59%, 53%) to hsl(189, 58%, 57%);
+}
+body{
+    background-image: radial-gradient(hsl(214, 47%, 23%),hsl(237, 49%, 15%));
+}
+header{
+    padding: 2rem;
+    outline: 2px solid white;
+    display: flex;
+    width: 30rem;
+    justify-content: space-between;
+    border-radius: 1rem;
+}
+.score{
+    width: 4rem;
+    height: 4rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    color: var(--Dark-Text);
+    text-align: center;
+}
+.score p:nth-child(2){
+    font-size: 40px;
+    color: var(--Score-Text);
+}
+.logo{
+    width: 200px;
+    height: 100px;
+    background: url('logo.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 80%;
+}
+.contain{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-block: 2rem;
+}
+.firstAction,
+.secondAction,
+.thirdAction{
+    width: 8rem;
+    height: 8rem;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: relative;
+}
+.firstAction{
+    left: 4rem;
+    top: 0.8rem;
+    border: 1.5rem solid hsl(230, 89%, 62%);
+}
+#player.openFirst,
+#house.openFirst{
+    border: 1.5rem solid hsl(230, 89%, 62%);
+}
+.secondAction{
+    left: 25rem;
+    bottom: 10.7rem;
+    border: 1.5rem solid hsl(39, 89%, 49%);
+}
+#player.openSecond,
+#house.openSecond{
+    border: 1.5rem solid hsl(39, 89%, 49%);
+}
+.thirdAction{
+    left: 15rem;
+    bottom: 2.6rem;
+    border: 1.5rem solid hsl(349, 71%, 52%);
+}
+#player.openThird,
+#house.openThird{
+    border: 1.5rem solid hsl(349, 71%, 52%);
+}
+.rule{
+    display: flex;
+    margin-inline: 3rem;
+    justify-content: flex-end;
+}
+.rule p:last-child{
+    display: inline-block;
+    border: 2px solid white;
+    margin-block: 2rem;
+    padding: 0.5rem 1rem;
+    color: white;
+    width: max-content;
+    border-radius: 0.5rem;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#rule{
+    background-color: white;
+    padding: 1rem 3rem;
+    position: absolute;
+    top: 17rem;
+    left: 30rem;
+    border-radius: 1rem;
+    display: none;
+}
+#rule.open{
+    display: block;
+}
+#rule p{
+    color: var(--Dark-Text);
+    font-size: 30px;
+    font-weight: 700;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#rule div:nth-child(1){
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.game{
+    margin-block: 4rem;
+    width: 40rem;
+    background: url("bg-triangle.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+}
+.attribution{
+    margin-block: 0 2rem;
+    color: white;
+    text-align: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+}
+.attribution a{
+    color: gold;
+}
+.playAgain{
+    border: 1px solid;
+    padding: 0.5rem 1.5rem;
+    border-radius: 1rem;
+    width: max-content;
+    height: max-content;
+    font-size: 20px;
+    font-weight: 900;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.result{
+    justify-content: space-between;
+    display: flex;
+    margin-inline: 13rem;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    display:none;
+}
+.answer{
+    font-weight: 900;
+}
+.playAgain:hover{
+    background-color: white;
+    color: var(--Dark-Text);
+}
+.center{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+}
+.game.open{
+    display: none;
+}
+.result.open{
+    display: flex;
+}
+#player,
+#house{
+    margin-block: 1.5rem;
+    width: 8rem;
+    height: 8rem;
+    background-color: white;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: relative;
+}
+#house{
+    border: 1.5rem solid;
+}
+@media screen and (max-width:375px) {
+    .contain{
+        flex-direction: column;
+    }
+    header{
+        width: 70%;
+        margin-inline: 5rem;
+        padding:0.5rem;
+        align-items: center;
+    }
+    .logo{
+        width: 5rem;
+        height: 4rem;
+    }
+    .score{
+        width: 2rem;
+        justify-content: space-evenly;
+        height:2rem;
+        padding-block: 0.5rem;
+        height: max-content;
+    }
+    #score{
+        font-size: 2rem;
+    }
+    .game{
+        width: 100%;
+        background: url("bg-triangle.svg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 80%;
+    }
+    .firstAction,
+    .secondAction,
+    .thirdAction{
+        width: 5rem;
+        height: 5rem;
+        /* left: 0; */
+    }
+    .firstAction{
+        border: 0.5rem solid hsl(230, 89%, 62%);
+        left:1.2rem ;
+        top: -0.4rem;
+    }
+    .secondAction{
+        border: 0.5rem solid hsl(39, 89%, 49%);
+        left:65%;
+        bottom: 6.6rem;
+    }
+    .thirdAction{
+        border: 0.5rem solid hsl(349, 71%, 52%);
+        bottom: 0.3rem;
+        left: 33%;
+    }
+    #rule{
+        padding: 1rem;
+        width: 80%;
+        left: 5%;
+    }
+    #rule div:nth-child(1){
+        height: 2rem;
+        font-size: 1rem;
+    }
+    #rule div img {
+        display: none;
+    }
+    #rule #img{
+        height: 17rem;
+        width: 100%;
+        background-image: url("image-rules.svg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center center;
+        z-index: 3;
+    }
+    .result{
+        flex-direction: column;
+        margin-inline: 5rem;
+        justify-content: center;
+        align-items: center;
+        left: 2rem;
+    }
+    .player,
+    .house{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .center{
+        margin-block:1rem 2rem;
+    }
+    #player.openThird,
+    #house.openThird{
+    border: 0.5rem solid hsl(349, 71%, 52%);    
+    }
+    #player.openSecond,
+    #house.openSecond{
+        border: 0.5rem solid hsl(39, 89%, 49%);
+    }
+    #player.openFirst,
+    #house.openFirst{
+        border: 0.5rem solid hsl(230, 89%, 62%);
+    }
+}
+@media screen and (max-width:768px) and (min-width:376px) {
+    .player,
+    .house{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .result{
+        margin-inline: 10%;
+    }
+    #rule{
+        left: 22%;
+    }
+}
